@@ -1,0 +1,47 @@
+package com.priya.Springcrud.controller;
+
+import java.security.Provider.Service;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.priya.Springcrud.model.Sales;
+
+@Controller
+public class Homecontroller {
+
+	@Autowired
+	private SalesDao dao;
+	@RequestMapping("/")
+	public String view(Model m) {
+		List<Sales> listSales=dao.list();
+		m.addAttribute("listSales", listSales);
+		return "index";
+		
+	}
+	@RequestMapping("/new")
+	public String addnew(Model m) {
+		Sales s=new Sales();
+		m.addAttribute("Sales", s);
+		return "add";
+		
+	}
+	@RequestMapping(value = "/save",method=RequestMethod.POST)
+	public String save(@ModelAttribute("sales") Sales s) {
+		dao.save(s);
+		return "redirect:/";
+	}
+	public ModelAndView edit(@PathVariable(name="id") int id) {
+		ModelAndView mv=new ModelAndView("edit");
+		Sales s=dao.get(id);
+		mv.addObject("sales", s);
+		return mv;
+	}
+}

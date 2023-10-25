@@ -1,0 +1,36 @@
+package com.priya.Springcrud.controller;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate5.HibernateTemplate;
+import org.springframework.stereotype.Repository;
+
+import com.priya.Springcrud.Repository.repo;
+import com.priya.Springcrud.model.Sales;
+
+@Repository
+@Transactional
+public class SalesDao {
+	@Autowired
+private repo r;
+public List<Sales>list(){
+	return r.findAll();
+	
+}
+public void save(Sales s) {
+	r.save(s);
+}
+public Sales get(int id) {
+	return r.findById(id).get();
+	
+}
+public void update(Sales s) {
+	
+}
+public void delete(int id) {
+	
+}
+}

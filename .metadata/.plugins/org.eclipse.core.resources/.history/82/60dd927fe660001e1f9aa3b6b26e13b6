@@ -1,0 +1,17 @@
+package com.priya.main.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.priya.main.model.Emp;
+
+@Controller
+public class Homecontroller {
+@RequestMapping("/")
+String fun(Model m) {
+	Emp e=new Emp();
+	m.addAttribute("obj", e);
+	return "reg.html";
+}
+}

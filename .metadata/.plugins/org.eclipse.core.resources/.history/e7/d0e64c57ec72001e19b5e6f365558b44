@@ -1,0 +1,13 @@
+package com.priya.Springcrud.controller;
+
+import javax.transaction.Transactional;
+
+import org.springframework.orm.hibernate5.HibernateTemplate;
+import org.springframework.stereotype.Repository;
+
+@Repository
+@Transactional
+public class SalesDao {
+private HibernateTemplate temp;
+
+}

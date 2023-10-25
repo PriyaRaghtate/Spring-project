@@ -1,0 +1,10 @@
+package com.priya.main.model;
+
+import lombok.Data;
+
+public class Emp {
+@Data
+	private int id;
+	private String name;
+	private String salary;
+}

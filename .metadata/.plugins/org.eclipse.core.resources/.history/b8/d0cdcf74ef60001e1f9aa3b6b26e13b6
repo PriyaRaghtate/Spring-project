@@ -1,0 +1,6 @@
+<form action = "" th:action="@{/reg}" th:object="${obj}">
+Roll : <input type="text" th:object="${obj}" th:field= "*{id}"><br>
+Name : <input type="text" th:object="${obj}" th:field= "*{name}"><br>
+Salary : <input type="text" th:object="${obj}" th:field= "*{salary}"><br>
+<input type="submit" value="Go">
+</form>

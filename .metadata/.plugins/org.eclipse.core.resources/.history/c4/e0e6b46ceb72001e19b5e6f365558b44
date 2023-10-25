@@ -1,0 +1,8 @@
+package com.priya.Springcrud.model;
+
+public class Sales {
+	private int id;
+	private String item;
+	private int quatity;
+	private float amount;
+}

@@ -1,0 +1,32 @@
+package com.priya.Springcrud.controller;
+
+import java.security.Provider.Service;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.priya.Springcrud.model.Sales;
+
+@Controller
+public class Homecontroller {
+
+	@Autowired
+	private SalesDao dao;
+	@RequestMapping("/")
+	public String view(Model m) {
+		List<Sales> listSales=dao.list();
+		m.addAttribute("listSales", listSales);
+		return "index";
+		
+	}
+	@RequestMapping("/new")
+	public String addnew(Model m) {
+		Sales s=new Sales();
+		m.addAttribute("Sales", s);
+		return "add_new";
+		
+	}
+}

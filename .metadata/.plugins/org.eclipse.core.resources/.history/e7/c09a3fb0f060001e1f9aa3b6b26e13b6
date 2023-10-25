@@ -1,0 +1,28 @@
+package com.priya.main.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.priya.main.model.Emp;
+import com.priya.main.repo.Emprepo;
+
+@Controller
+public class Homecontroller {
+	@Autowired
+	Emprepo db;
+@RequestMapping("/")
+String fun(Model m) {
+	Emp e=new Emp();
+	m.addAttribute("obj", e);
+	return "reg.html";
+}
+@RequestMapping("/reg")
+String fun2(@ModelAttribute("obj")Emp e) {
+	System.out.println(e);
+	db.save(e);
+	return "Add successfully";
+}
+}
