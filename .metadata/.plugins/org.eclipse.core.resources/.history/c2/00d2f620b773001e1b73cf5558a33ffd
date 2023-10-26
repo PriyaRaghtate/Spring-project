@@ -1,0 +1,28 @@
+package com.priya.Hibernate_jpa_crud.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.priya.Hibernate_jpa_crud.Service.ProductService;
+import com.priya.Hibernate_jpa_crud.model.Product;
+@Controller
+public class Homecontroller {
+@Autowired
+	private ProductService ps;
+@RequestMapping("/")
+String home(Model m) {
+	List<Product> lp=ps.listAll();
+	m.addAttribute("l", lp);
+	return "index";
+}
+@RequestMapping("/new")
+String addnew(Model m) {
+	Product p=new Product();
+	m.addAttribute("p", p);
+	return "add";
+}
+}

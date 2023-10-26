@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add new product</title>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+	<div align="center">
+		<h1>Add new product</h1>
+		<br><br>
+		<form action="#" th:action="@{/save}" th:object="${p}" method="post">
+			<div class="form-group">
+    <label>Product Name</label>
+    <input type="text" th:field="*{name}" class="form-control" placeholder="Product name">
+  </div>
+  <div class="form-group">
+    <label>Brand</label>
+    <input type="text" th:field="*{Brand}" class="form-control" placeholder="Brand">
+  </div>
+  <div class="form-group">
+    <label>Made In</label>
+    <input type="text" th:field="*{madein}" class="form-control" placeholder="Made In">
+  </div>
+  <div class="form-group">
+    <label>Price</label>
+    <input type="text" th:field="*{price}" class="form-control" placeholder="Price">
+  </div>
+ 
+  <button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+	
+</body>
+</html>

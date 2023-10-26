@@ -1,0 +1,5 @@
+package com.priya.Hibernate_jpa_crud.Repository;
+
+public interface Repo {
+
+}

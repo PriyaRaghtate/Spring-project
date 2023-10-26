@@ -1,0 +1,11 @@
+package com.priya.Hibernate_jpa_crud.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.priya.Hibernate_jpa_crud.Service.ProductService;
+@Controller
+public class Homecontroller {
+@Autowired
+	private ProductService ps;
+}

@@ -1,0 +1,21 @@
+package com.priya.Hibernate_jpa_crud.Service;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.priya.Hibernate_jpa_crud.Repository.Repo;
+import com.priya.Hibernate_jpa_crud.model.Product;
+
+@Service
+@Transactional
+public class ProductService {
+@Autowired
+	private Repo r;
+public List<Product> listAll(){
+	return r.findAll();
+}
+}
