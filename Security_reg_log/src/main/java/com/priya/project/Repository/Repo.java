@@ -1,5 +1,9 @@
 package com.priya.project.Repository;
 
-public interface Repo {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.priya.project.Model.User;
+
+public interface Repo extends JpaRepository<User, Integer> {
 
 }
